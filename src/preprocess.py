@@ -6,8 +6,8 @@ from sklearn.model_selection import train_test_split
 
 # ---- normalization ----
 def normalize(x):
-    return x.astype("float32") / 255.0
-# -----------------------
+    x = x.astype("float32") / 255.0
+    return (x - 0.2860) / 0.3530        # global standardization
 
 
 def main():
