@@ -6,8 +6,10 @@ from sklearn.model_selection import train_test_split
 
 # ---- normalization ----
 def normalize(x):
-    return x.astype("float32") / 255.0
-# -----------------------
+    x = x.astype("float32") / 255.0
+    lo = x.min(axis=(1, 2), keepdims=True)
+    hi = x.max(axis=(1, 2), keepdims=True)
+    return (x - lo) / (hi - lo + 1e-7)    # per-image min-max
 
 
 def main():
