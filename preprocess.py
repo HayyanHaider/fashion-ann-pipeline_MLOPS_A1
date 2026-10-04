@@ -11,6 +11,7 @@ def normalize(x):
 
 
 def main():
+        """Normalize raw Fashion-MNIST arrays and split into train/val/test."""
     params = yaml.safe_load(open("params.yaml"))["preprocess"]
     d = np.load("data/raw/fashion_mnist_raw.npz")
 
